@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  catamarca_maps_frontend:
+    build:
+      context: .
+      args:
+        - ENVIRONMENT=${ENVIRONMENT}
+    image: img_${ENVIRONMENT}_${PROJECT_NAME}:latest
+    container_name: ct_${ENVIRONMENT}_${PROJECT_NAME}
+    restart: always
+    ports:
+      - "${DOCKER_PORT}:${PORT}"

@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { Icon } from './Icon';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const CustomLegend = () => {
   return (
     <ul style={{ listStyleType: "none", padding: 0 }}>
@@ -78,7 +80,7 @@ export const CardEstadistica = () => {
 
   const fetchExportacionesData = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/exportaciones/api/exportaciones/');
+      const response = await axios.get(`${API_URL}/exportaciones/api/exportaciones/`);
       const exportaciones = response.data;
 
       // Productos por Rubro
