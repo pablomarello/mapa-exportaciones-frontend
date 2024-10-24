@@ -12,7 +12,7 @@ import { Estadistica } from './pages/Estadistica';
 function App() {
   return (
     <>
-    <Router>
+    <Router basename='/ui/'>
       <Routes>
         <Route path='/' Component={Inicio}/>
         <Route path='/mapa' Component={Map} />
