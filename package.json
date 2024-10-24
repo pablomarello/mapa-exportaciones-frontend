@@ -7,7 +7,7 @@
     "dev": "vite --mode development",
     "local": "vite --mode staging --host 0.0.0.0",
     "build:development": "vite build --mode development",
-    "build:staging": "vite build --mode staging --base=/ui/",
+    "build:staging": "vite build --mode staging",
     "build:production": "vite build --mode production",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
