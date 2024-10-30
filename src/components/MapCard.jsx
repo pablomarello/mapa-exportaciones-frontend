@@ -35,7 +35,6 @@ export const MapCard = () => {
   const [uniqueYears, setUniqueYears] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [uniqueCountries, setUniqueCountries] = useState([]);
-  
 
   useEffect(() => {
     getAllExportaciones()
@@ -145,7 +144,6 @@ export const MapCard = () => {
   }, [selectedCountry,filteredYear]);
 
   useEffect(() => {
-    
     if (filteredData.length > 0) {
       setFilteredCoords([filteredData[0].destino.coordenadas[1], filteredData[0].destino.coordenadas[0]]);
     } else {
@@ -154,6 +152,8 @@ export const MapCard = () => {
   }, [filteredData])
 
   useEffect(() => {
+    // filtrar los datos originales y obtener solo los que tienen coordenadas
+    //const filteredExportaciones = originalExportaciones.filter(exp => exp.destino.coordenadas && exp.destino.coordenadas.length > 0);
     setFilteredData(originalExportaciones)
   }, [originalExportaciones])
   
@@ -289,11 +289,11 @@ export const MapCard = () => {
             </Popup>
           </Marker>
           {filteredData.map((exp, index) => {
-            const pulseIcon = L.icon.pulse({
+            /*const pulseIcon = L.icon.pulse({
               iconSize: [12, 12],
               color: 'blue',
               fillColor: 'blue'
-            });
+            });*/
 
             // Filtrar las exportaciones por el mismo destino Y por el año seleccionado
             const exportacionesMismoDestino = filteredData.filter(e => e.destino.nombre === exp.destino.nombre);
@@ -306,7 +306,7 @@ export const MapCard = () => {
               <Marker
                 key={index}
                 position={[exp.destino.coordenadas[1], exp.destino.coordenadas[0]]}
-                icon={pulseIcon}
+                /*icon={pulseIcon}*/
               >
                 <Popup key={index} className="w-80">
                   
